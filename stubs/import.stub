@@ -1,0 +1,19 @@
+<?php
+
+namespace {{ namespace }};
+
+use Maatwebsite\Excel\Concerns\ToModel;
+use Illuminate\Database\Eloquent\Model;
+
+class {{ class }} implements ToModel
+{
+    public function model(array $row): ?Model
+    {
+        // Map each row to your model
+        return new \App\Models\User([
+            'name' => $row[0],
+            'email' => $row[1],
+            'password' => bcrypt($row[2]),
+        ]);
+    }
+}

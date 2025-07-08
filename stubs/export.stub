@@ -1,0 +1,15 @@
+<?php
+
+namespace {{ namespace }};
+
+use Maatwebsite\Excel\Concerns\FromCollection;
+
+class {{ class }} implements FromCollection
+{
+    public function collection()
+    {
+        return collect([
+            // Your export data here
+        ]);
+    }
+}
