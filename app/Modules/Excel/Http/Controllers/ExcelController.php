@@ -29,31 +29,6 @@ class ExcelController extends Controller
     }
 
 
-    /**
-     * function import .
-     * Expects these inputs:
-     *  - table:      name of the DB table
-     *  - file:       the uploaded Excel/CSV file
-     *  - rules:      validation rules
-     */
-    public function import(Request $request)
-    {
-        // $request->validate([
-        //     'file'  => 'required|file|mimes:xlsx,xls,csv',
-        //     'table' => 'required|string|',
-        // ]);
-
-        // $table = $request->input('table');
-        // $file  = $request->file('file');
-
-
-        // $result = ExcelImportService::import($table, $file);
-
-
-        // return response()->json($result);
-    }
-
-
     public function exportExample(Request $request)
     {
         $request->validate([
