@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Modules\Excel\Providers\ExcelServiceProvider;
-use App\Modules\Excel\Providers\RouteServiceProvider;
 use Illuminate\Database\Migrations\MigrationCreator;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
@@ -29,6 +28,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->app->register(ExcelServiceProvider::class);
-        $this->app->register(RouteServiceProvider::class);
     }
 }

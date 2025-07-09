@@ -30,7 +30,7 @@ class ExcelExportService
 
         // Save to DB
         DB::table('exports')->insert([
-            'exported_by'    => Auth::id(),
+            'user_id'    => Auth::id(),
             'file_name'      => $fileName,
             'exported_file'  => $filePath,
             'created_at'     => now(),

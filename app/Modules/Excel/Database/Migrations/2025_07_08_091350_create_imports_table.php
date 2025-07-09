@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('imports', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('imported_by')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('file_name')->nullable();
             $table->string('imported_file')->nullable();
             $table->unsignedInteger('success_rows_count');

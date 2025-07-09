@@ -72,7 +72,7 @@ class ExcelImportService
 
         // Save to DB
         $id = DB::table('imports')->insertGetId([
-            'imported_by' => Auth::id(),
+            'user_id' => Auth::id(),
             'file_name' => $fileName,
             'imported_file' => $imported_file_path,
             'success_rows_count' => $import->successRowsCount,
