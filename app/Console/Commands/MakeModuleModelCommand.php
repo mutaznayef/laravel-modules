@@ -39,7 +39,7 @@ class MakeModuleModelCommand extends GeneratorCommand
         }
 
         $name = str_replace($this->getDefaultNamespace('App\\'), '', $name);
-        $path = $this->getModulePath($module, 'Models') . '/' . str_replace('\\', '/', $name) . '.php';
+        $path = $this->modulePath($module, 'Models') . '/' . str_replace('\\', '/', $name) . '.php';
 
         $this->ensureDirectory(dirname($path));
         return $path;

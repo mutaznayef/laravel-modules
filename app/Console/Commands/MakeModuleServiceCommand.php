@@ -39,7 +39,7 @@ class MakeModuleServiceCommand extends GeneratorCommand
         }
 
         $name = str_replace($this->getDefaultNamespace('App\\'), '', $name);
-        $path = $this->getModulePath($module, 'Services') . '/' . str_replace('\\', '/', $name) . '.php';
+        $path = $this->modulePath($module, 'Services') . '/' . str_replace('\\', '/', $name) . '.php';
 
         $this->ensureDirectory(dirname($path));
         return $path;

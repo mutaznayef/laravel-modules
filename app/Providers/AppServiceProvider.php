@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Modules\Dashboard\Providers\DashboardServiceProvider;
 use App\Modules\Excel\Providers\ExcelServiceProvider;
 use Illuminate\Database\Migrations\MigrationCreator;
 use Illuminate\Filesystem\Filesystem;
@@ -28,5 +29,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->app->register(ExcelServiceProvider::class);
+        $this->app->register(DashboardServiceProvider::class);
     }
 }

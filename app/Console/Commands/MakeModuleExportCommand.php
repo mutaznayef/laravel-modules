@@ -39,7 +39,7 @@ class MakeModuleExportCommand extends GeneratorCommand
         }
 
         $name = str_replace($this->getDefaultNamespace('App\\'), '', $name);
-        $path = $this->getModulePath($module, 'Exports') . '/' . str_replace('\\', '/', $name) . '.php';
+        $path = $this->modulePath($module, 'Exports') . '/' . str_replace('\\', '/', $name) . '.php';
 
         $this->ensureDirectory(dirname($path));
         return $path;

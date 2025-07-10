@@ -39,7 +39,7 @@ class MakeModuleImportCommand extends GeneratorCommand
         }
 
         $name = str_replace($this->getDefaultNamespace('App\\'), '', $name);
-        $path = $this->getModulePath($module, 'Imports') . '/' . str_replace('\\', '/', $name) . '.php';
+        $path = $this->modulePath($module, 'Imports') . '/' . str_replace('\\', '/', $name) . '.php';
 
         $this->ensureDirectory(dirname($path));
         return $path;
