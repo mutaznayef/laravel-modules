@@ -2,7 +2,9 @@
 
 namespace App\Modules\Dashboard\Providers;
 
+use App\Modules\Dashboard\Models\Menu;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class DashboardServiceProvider extends ServiceProvider
@@ -26,7 +28,7 @@ class DashboardServiceProvider extends ServiceProvider
 
         $this->loadRoutesFrom($modulePath . 'Http/routes/web.php');
         $this->loadRoutesFrom($modulePath . 'Http/routes/api.php');
-        $this->loadViewsFrom($modulePath . 'Resources/views', 'Dashboard');
+        $this->loadViewsFrom(app_path('Modules/Dashboard/Resources/views'), 'Dashboard');
         $this->loadTranslationsFrom($modulePath . 'Resources/lang', 'Dashboard');
         $this->loadMigrationsFrom($modulePath . 'Database/Migrations');
 
@@ -36,6 +38,22 @@ class DashboardServiceProvider extends ServiceProvider
         Blade::component('Dashboard::layout._default', 'default-layout');
         Blade::component('Dashboard::layout._auth', 'auth-layout');
         Blade::component('Dashboard::layout._system', 'system-layout');
+
+
+        View::composer('Dashboard::/layout/partials/sidebar', function ($view) {
+            $menus = Menu::with('children')->whereNull('parent_id')->get();
+            // Group them by section (assuming your table has a 'section' column)
+            $menusBySection = $menus->groupBy('section');
+
+            $view->with('menusBySection', $menusBySection);
+        });
+
+        View::composer('Dashboard::/layout/partials/header', function ($view) {
+            $menus = Menu::with('children')->whereNull('parent_id')->get();
+            // Group them by section (assuming your table has a 'section' column)
+            $menusBySection = $menus->groupBy('section');
+            $view->with('menusBySection', $menusBySection);
+        });
 
         Blade::componentNamespace('../Resources/views/components', 'Dashboard');
 

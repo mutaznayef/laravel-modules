@@ -53,7 +53,7 @@ class MakeModuleMigrationCommand extends MigrateMakeCommand
                 $this->error("Module [{$module}] does not exist.");
                 exit(1);
             }
-            return $this->modulePath($module, 'Database/Migrations');
+            return $this->modulePath('Database/Migrations');
         }
 
         return parent::getMigrationPath();

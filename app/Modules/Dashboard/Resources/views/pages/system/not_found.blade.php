@@ -48,7 +48,7 @@
 
         <!--begin::Link-->
         <div class="mb-0">
-            <a href="{{ locale_route('dashboard') }}" class="btn btn-sm btn-primary">Return Home</a>
+            <a href="{{ route('dashboard') }}" class="btn btn-sm btn-primary">Return Home</a>
         </div>
         <!--end::Link-->
 

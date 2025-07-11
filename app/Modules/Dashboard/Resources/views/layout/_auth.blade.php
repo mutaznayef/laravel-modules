@@ -1,4 +1,4 @@
-@extends('Dashboard::layout.master')
+@extends('layout.master')
 
 @section('content')
 

@@ -16,7 +16,7 @@ class MakeModuleModelCommand extends GeneratorCommand
 
     protected function getStub()
     {
-        return base_path('stubs/model.stub');
+        return base_path('vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/model.stub');
     }
 
     protected function getDefaultNamespace($rootNamespace)
@@ -39,7 +39,7 @@ class MakeModuleModelCommand extends GeneratorCommand
         }
 
         $name = str_replace($this->getDefaultNamespace('App\\'), '', $name);
-        $path = $this->modulePath($module, 'Models') . '/' . str_replace('\\', '/', $name) . '.php';
+        $path = $this->modulePath('Models') . '/' . str_replace('\\', '/', $name) . '.php';
 
         $this->ensureDirectory(dirname($path));
         return $path;
